@@ -30,6 +30,14 @@
         color: #fff;
         padding: 1rem 0;
         text-align: center;
+        position: relative;
+    }
+
+    header img.flag {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 40px;
     }
 
     nav ul {
@@ -102,12 +110,19 @@
         background: #575757;
     }
 
+    #about img.profile {
+        display: block;
+        margin: 1rem auto;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+
 </style>
 <body>
 
-
-
 <header>
+    <img src="img/flag.jpg" alt="American Flag" class="flag">
     <h1>Online Math Tutoring</h1>
     <nav>
         <ul>
@@ -127,18 +142,56 @@
 
 <section id="about">
     <h2>About Me</h2>
+    <img src="img/alex.jpeg" alt="Profile Picture" class="profile">
     <p>Your qualifications and experience go here.</p>
+    <div>
+        Real-World Applications:
+        <ul>
+            <li>Our tutoring sessions focus on how math is used in everyday life and various professions.</li>
+            <li>Learn math through practical examples relevant to engineering, technology, finance, and more.</li>
+        </ul>
+        Results-Oriented Approach:
+        <ul>
+            <li>We prioritize understanding and solving real-world problems, ensuring you achieve measurable results.</li>
+            <li>Our methods are designed to boost your confidence and improve your grades quickly.</li>
+        </ul>
+        Less Theory, More Practice:
+        <ul>
+            <li>Skip the endless theory; dive into practical problem-solving from day one.</li>
+            <li>Hands-on learning that makes complex concepts easy to understand.</li>
+        </ul>
+        Qualified Expertise:
+        <ul>
+            <li>Tutored by a master's degree holder in engineering with a passion for teaching practical math.</li>
+            <li>Expert guidance to bridge the gap between theoretical knowledge and practical application.</li>
+        </ul>
+    </div>
 </section>
 
 <section id="services">
     <h2>Services</h2>
     <p>Details about your tutoring services go here.</p>
     <div>
-        Diagnostic Assessment: Begin with a diagnostic test to understand each student's current proficiency level, strengths, and areas for improvement.
-        Interactive Learning: Incorporate interactive activities like role-plays, group discussions, and problem-solving tasks to enhance engagement and practical use of language skills.
-        Differentiated Instruction: Tailor lessons to meet individual learning styles and needs, using a mix of visual, auditory, and kinesthetic activities.
-        Formative Assessment: Use continuous assessment methods like quizzes, peer reviews, and self-assessments to track progress and provide ongoing feedback.
-        Real-world Application: Integrate real-life contexts and scenarios to make learning relevant and practical.
+        Diagnostic Assessment:
+        <ul>
+            <li>Begin with a diagnostic test to understand each student's current proficiency level, strengths, and areas for improvement.</li>
+        </ul>
+        Interactive Learning:
+        <ul>
+            <li>Incorporate interactive activities like role-plays, group discussions, and problem-solving tasks to enhance engagement and practical use of language skills.</li>
+        </ul>
+        Differentiated Instruction:
+        <ul>
+            <li>Tailor lessons to meet individual learning styles and needs, using a mix of visual, auditory, and kinesthetic activities.</li>
+        </ul>
+        Formative Assessment:
+        <ul>
+            <li>Use continuous assessment methods like quizzes, peer reviews, and self-assessments to track progress and provide ongoing feedback.</li>
+        </ul>
+        Real-world Application:
+        <ul>
+            <li>Integrate real-life contexts and scenarios to make learning relevant and practical.</li>
+        </ul>
     </div>
 </section>
 
@@ -146,30 +199,6 @@
     <h2>Testimonials</h2>
     <p>Reviews from past students go here.</p>
 </section>
-
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function () {
-    emailjs.init("ZlvtNvlNRaV_WYDOj"); // Replace "YOUR_USER_ID" with your actual user ID
-  })();
-</script>
-
-<script type="text/javascript">
-
-  document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent form submission
-
-    // These IDs from the previous steps
-    emailjs.sendForm('service_bbouos7', 'template_gj7ot5n', this)
-      .then(function () {
-        console.log('SUCCESS!');
-        alert('Your message has been sent successfully!');
-      }, function (error) {
-        console.log('FAILED...', error);
-        alert('There was an error sending your message. Please try again.');
-      });
-  });
-</script>
 
 <section id="contact">
     <h2>Contact</h2>
@@ -184,8 +213,31 @@
     </form>
 </section>
 
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  document.getElementById('contact').addEventListener('click', function () {
+    this.removeEventListener('click', arguments.callee);
+    // Create and insert the EmailJS script
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://cdn.emailjs.com/dist/email.min.js';
+    script.onload = function () {
+      // Create and insert the contact.js script
+      var contactScript = document.createElement('script');
+      contactScript.type = 'text/javascript';
+      contactScript.src = 'contact.js'; // Path to your contact.js file
+      document.head.appendChild(contactScript);
+    };
+
+    document.head.appendChild(script);
+    // Ensure this handler is only run once
+  });
+</script>
+
 <footer>
     <p>&copy; 2024 Math Tutoring Services</p>
 </footer>
+
 </body>
 </html>
