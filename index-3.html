@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Tutoring Services</title>
+</head>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background: #333;
+        color: #fff;
+        padding: 1rem 0;
+        text-align: center;
+        position: relative;
+    }
+
+    header img.flag {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 40px;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 15px;
+        transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+        background: #575757;
+    }
+
+    section {
+        padding: 2rem;
+        margin: 1rem 0;
+    }
+
+    footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    #home {
+        background: #f4f4f4;
+        padding-top: 3rem;
+    }
+
+    #about, #services, #testimonials, #contact {
+        background: #e9e9e9;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form label {
+        margin-bottom: 0.5rem;
+    }
+
+    form input, form textarea, form button {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    form button {
+        background: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    form button:hover {
+        background: #575757;
+    }
+
+    #about img.profile {
+        display: block;
+        margin: 1rem auto;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+
+</style>
+<body>
+
+<header>
+    <img src="img/flag.jpg" alt="American Flag" class="flag">
+    <h1>Online Math Tutoring</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home">
+    <h2>Welcome to Great Math Tutoring!</h2>
+    <p>Your introduction goes here.</p>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <img src="img/alex.jpeg" alt="Profile Picture" class="profile">
+    <div>
+        My name is Alex and I will be your math tutor! I tutor from K to Calculus :)
+        I am from California, and have a masters degree in engineering from UT Austin (2022).
+        I have always been more interested in math applications than theory. And sometimes we just need to pass our
+        classes :)
+        I am very empathetic and practical tutor, who wants to help you enjoy math and learn the material
+        needed. Enjoying the process and being self-sufficient is the goal.
+    </div>
+</section>
+
+<section id="services">
+    <h2>Services</h2>
+    <p>Details about your tutoring services go here.</p>
+    <div>
+        Diagnostic Assessment:
+        <ul>
+            <li>Begin with a diagnostic test to understand each student's current proficiency level, strengths, and areas for improvement.</li>
+        </ul>
+        Interactive Learning:
+        <ul>
+            <li>Incorporate interactive activities like role-plays, group discussions, and problem-solving tasks to enhance engagement and practical use of language skills.</li>
+        </ul>
+        Differentiated Instruction:
+        <ul>
+            <li>Tailor lessons to meet individual learning styles and needs, using a mix of visual, auditory, and kinesthetic activities.</li>
+        </ul>
+        Formative Assessment:
+        <ul>
+            <li>Use continuous assessment methods like quizzes, peer reviews, and self-assessments to track progress and provide ongoing feedback.</li>
+        </ul>
+        Real-world Application:
+        <ul>
+            <li>Integrate real-life contexts and scenarios to make learning relevant and practical.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2>Testimonials</h2>
+    <p>Reviews from past students go here.</p>
+</section>
+
+<section id="contact">
+    <h2>Email Me To Get Started:</h2>
+    <form id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  document.getElementById('contact').addEventListener('click', function () {
+    this.removeEventListener('click', arguments.callee);
+    // Create and insert the EmailJS script
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://cdn.emailjs.com/dist/email.min.js';
+    script.onload = function () {
+      // Create and insert the contact.js script
+      var contactScript = document.createElement('script');
+      contactScript.type = 'text/javascript';
+      contactScript.src = 'contact.js'; // Path to your contact.js file
+      document.head.appendChild(contactScript);
+    };
+
+    document.head.appendChild(script);
+    // Ensure this handler is only run once
+  });
+</script>
+
+<footer>
+    <p>&copy; 2024 Great Math Tutor</p>
+</footer>
+
+</body>
+</html>
